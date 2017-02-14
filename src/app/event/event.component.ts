@@ -12,17 +12,38 @@ import { EventService } from '../event.service';
 
 export class EventComponent implements OnInit {
 
-  //constructor() { }
-  constructor(private privateEventService: EventService) { }
+	/**
+	 * Constructor is required for every component
+	 * and in case of the usage of a service below 
+	 * declaration of a private instance of that 
+	 * service is required
+	 */
+	//constructor() { }
+	constructor(private privateEventService: EventService) { }
 
-  ngOnInit() {
-  	this.getEvents();
-  }
+	/**
+	 * [ngOnInit This is a lifecycle hook in angular 
+	 * that is also required to be provided and in 
+	 * this case we need to call getEvents() everytime 
+	 * data changes so we have  it in there]
+	 */
+	ngOnInit() {
+		this.getEvents();
+	}
 
-  events : Event[]; //the 'Event[]' means its an array of type 'Event'
+	/**
+	 * [events This is the 'events' array of tyepe 'Event']
+	 * @type {Event[]}
+	 */
+  	events : Event[]; //the 'Event[]' means its an array of type 'Event'
 
-  getEvents(): void {
-    this.privateEventService.getEvents().then(data => this.events = data);
-  }
+  	/**
+  	 * [getEvents Method that retrieves the data of all 'Events' 
+  	 * from the service is being called here. Note that 
+  	 * there is method of same name in the service as well]
+  	 */
+	getEvents(): void {
+		this.privateEventService.getEvents().then(data => this.events = data);
+	}
 
 }

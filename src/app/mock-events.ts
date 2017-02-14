@@ -1,5 +1,11 @@
 import { Event } from './event';
 
+/**
+ * [EVENTSDATA This is the array that mocked
+ *  so it can be accesed across the app. 
+ *  This is being mocked to replicate a 'get' call in service]
+ * @type {Event[]}
+ */
 export const EVENTSDATA: Event[] = [
   { id: 11, name: 'Mr. Nice' },
   { id: 12, name: 'Narco' },
