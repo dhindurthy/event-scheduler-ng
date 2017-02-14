@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {enableProdMode} from '@angular/core';
+import { EventComponent } from './event/event.component';
 
+enableProdMode();
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
