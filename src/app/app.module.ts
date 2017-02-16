@@ -24,18 +24,18 @@ enableProdMode();
  *  Bootstrapping the AppComponent are done here
  */
 @NgModule({
-  declarations: [
+  declarations: [ /** All the components need to be declared here**/
     AppComponent,
     EventComponent,
     EventAddComponent
   ],
-  imports: [
+  imports: [ /** All the angular modules need to be imported here**/
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule
   ],
-  providers: [EventService],
-  bootstrap: [AppComponent]
+  providers: [EventService], /** All the Services need to be provided here**/
+  bootstrap: [AppComponent]  /** It is where component is bootstrapped**/
 })
 export class AppModule { }

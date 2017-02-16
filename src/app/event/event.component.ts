@@ -18,7 +18,6 @@ export class EventComponent implements OnInit {
 	 * declaration of a private instance of that 
 	 * service is required
 	 */
-	//constructor() { }
 	constructor(private privateEventService: EventService) { }
 
 	/**
