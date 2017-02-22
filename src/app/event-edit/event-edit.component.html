@@ -1,0 +1,12 @@
+
+  event-edit works!
+  The event you edit is 
+
+<div *ngIf="eventEditable">
+  <h3>{{eventEditable.name}}</h3>
+ 
+    <label>name: </label>
+    <input [(ngModel)]="eventEditable.name" placeholder="name" />
+  	<button (click)="goBack()">Back</button>
+</div>
+
