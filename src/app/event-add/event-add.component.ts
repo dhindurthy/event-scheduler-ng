@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from '../event';
 
 @Component({
   selector: 'app-event-add',

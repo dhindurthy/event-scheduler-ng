@@ -18,4 +18,9 @@ export class EventService {
     return Promise.resolve(EVENTSDATA);
   }
 
+  getEvent(id: number): Promise<Event> {
+    return this.getEvents()
+               .then(events => events.find(event => event.id === id));
+  }
+
 }
