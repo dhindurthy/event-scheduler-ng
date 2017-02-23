@@ -1,7 +1,8 @@
 <a routerLink="/event-add" routerLinkActive="active">Add an Event</a>
 <div class="events-container">
-	event list works!
-  <div *ngFor="let event of events"> <!--(click)="onSelect(event)"-->
+	event list works! <br>
+  <a *ngFor="let event of events" [routerLink]="['/event-edit', event.id]"> <!--(click)="onSelect(event)"-->
     <span> {{event.name}} </span>
-  </div>
+    <br>
+  </a>
 </div>

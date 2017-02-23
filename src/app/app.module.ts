@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {enableProdMode} from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { EventComponent } from './event/event.component';
 import { EventAddComponent } from './event-add/event-add.component';
 import { EventService } from './event.service';
 
 import { AppRoutingModule } from './app-routing.module';
+import { EventEditComponent } from './event-edit/event-edit.component';
 
 /**
  * [enableProdMode To enable the production mode]
@@ -27,7 +28,8 @@ enableProdMode();
   declarations: [ /** All the components need to be declared here**/
     AppComponent,
     EventComponent,
-    EventAddComponent
+    EventAddComponent,
+    EventEditComponent
   ],
   imports: [ /** All the angular modules need to be imported here**/
     BrowserModule,

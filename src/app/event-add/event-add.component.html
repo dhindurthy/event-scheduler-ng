@@ -1,4 +1,32 @@
-<p>
-  event-add works!
-  <a routerLink="/event" routerLinkActive="active">Back to events</a>
-</p>
+<div>
+	  event-add works!
+	<a routerLink="/event" routerLinkActive="active">Back to events</a>
+	<br>
+
+	<div class="container">
+	    <h1>Event Form</h1>
+	    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+	      <div>
+	        <label for="name">Name</label>
+	        <input type="text" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+	        <div [hidden]="name.valid || name.pristine">
+	          Name is required
+	        </div>
+	      </div>
+
+	      <div>
+	        <label for="id">ID</label>
+	        <input type="number" id="id" required [(ngModel)]="model.id" name="id" #id="ngModel">
+	        <div [hidden]="id.valid || id.pristine">
+	          ID is required
+	        </div>
+	      </div>
+	      
+	      <button type="submit" [disabled]="!eventForm.form.valid">Submit</button>
+	      <!-- <button type="button" (click)="newEvent(); eventForm.reset()">New Event</button> -->
+	    </form>
+	    <br><br><br>
+      <div>{{ model.name }}</div><div>AND</div>
+      <div>{{ model.id }}</div>
+	</div>
+</div>

@@ -5,6 +5,8 @@
  * "events" array is being used
  */
 export class Event {
-	id: number;
-  name: string;
+  constructor(
+    public id: number,
+    public name: string
+  ) {  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Event } from '../event';
 import { EventService } from '../event.service';
@@ -32,9 +32,8 @@ export class EventEditComponent implements OnInit {
 	 * [event Defining the type Event]
 	 * @type {Event}
 	 */
-	eventEditable: Event;
-
-	//constructor() { }
+	//eventEditable: Event;
+	@Input() eventEditable: Event;
 	/**
 	 * Constructor is required for every component
 	 * and in case of the usage of a service below 
@@ -47,8 +46,6 @@ export class EventEditComponent implements OnInit {
     	private location: Location
 	) { }
 
-	// ngOnInit() {
-	// }
 	/**
 	 * [ngOnInit Function to run the moment page loads]
 	 * Importing the Params which are retrieved iusing switchMap
@@ -67,6 +64,11 @@ export class EventEditComponent implements OnInit {
 	 */
 	goBack(): void {
 	    this.location.back();
+	}
+
+	saveEvent(): void {
+		console.log(this.eventEditable);
+		//add code which refers the service's method which saves the item to localStorage
 	}
 
 }

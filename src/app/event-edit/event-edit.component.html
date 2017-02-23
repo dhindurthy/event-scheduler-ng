@@ -7,6 +7,9 @@
  
     <label>name: </label>
     <input [(ngModel)]="eventEditable.name" placeholder="name" />
+    <input [(ngModel)]="eventEditable.id" placeholder="id" />
+    <button (click)="saveEvent()">Save</button>
+    <br>
   	<button (click)="goBack()">Back</button>
 </div>
 

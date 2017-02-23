@@ -15,7 +15,18 @@ export class EventService {
    * is the array of events in this case]
    */
   getEvents(): Promise<Event[]> {
-    return Promise.resolve(EVENTSDATA);
+    return Promise.resolve(
+      EVENTSDATA
+    );
   }
+
+  getEvent(id: number): Promise<Event> {
+    return this.getEvents()
+               .then(events => events.find(event => event.id === id));
+  }
+
+  //addEvent(): Promise<Event[]> {
+
+  // }
 
 }
