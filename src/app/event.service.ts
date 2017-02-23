@@ -24,9 +24,4 @@ export class EventService {
     return this.getEvents()
                .then(events => events.find(event => event.id === id));
   }
-
-  //addEvent(): Promise<Event[]> {
-
-  // }
-
 }
