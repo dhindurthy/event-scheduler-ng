@@ -16,7 +16,7 @@ export class EventAddComponent implements OnInit {
 		private privateEventService: EventService
 	) { }
 
-  	events : Event[];
+  	events : any;//Event[];
 
   	ngOnInit() {
 		
@@ -27,9 +27,17 @@ export class EventAddComponent implements OnInit {
   	submitted = false;
 
   	onSubmit() { 
-  		this.submitted = true; 
-  		console.log(this.model);
-  		//add code which refers the service's method which adds the item to localStorage
+  		this.submitted = true;
+
+  		let existingEvents: any = this.privateEventService.getEvents<string>('events');
+  		let storedEvents: any = [];
+
+  		if(existingEvents){
+  			storedEvents = existingEvents;
+  		} 
+  		storedEvents.push(this.model);
+  		console.log(storedEvents);
+	    this.privateEventService.setEvents('events',storedEvents);
   	}
 
 }

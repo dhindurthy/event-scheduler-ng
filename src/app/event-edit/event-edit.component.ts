@@ -53,9 +53,13 @@ export class EventEditComponent implements OnInit {
 	 * 'Subscribing' the result to a property on this .ts file
 	 */
 	ngOnInit(): void {
-	    this.route.params
-	      .switchMap((params: Params) => this.privateEventService.getEvent(+params['id']))
-	      .subscribe(editableEvent => this.eventEditable = editableEvent);
+
+	    let subscription = this.route.params.subscribe(params => {
+	       let eventId = +params['id']; // (+) converts string 'id' to a number
+	       console.log(eventId);
+	       let editableEvent: any = this.privateEventService.getEvent(eventId);
+	       console.log(editableEvent);
+	    });
 	}
 
 	/**
@@ -69,6 +73,7 @@ export class EventEditComponent implements OnInit {
 	saveEvent(): void {
 		console.log(this.eventEditable);
 		//add code which refers the service's method which saves the item to localStorage
+		//this.privateEventService.getEvents().then(data => this.events = data);
 	}
 
 }
