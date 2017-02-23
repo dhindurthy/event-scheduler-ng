@@ -1,6 +1,10 @@
 @import "_variables.scss";
+@import "_typography.scss";
 @import "_mixins.scss";
+@import "event-edit/event-edit.component.scss";
+@import "event-add/event-add.component.scss";
+@import "event/event.component.scss";
 
 div {
-	color: $black;
+	//color: $black;
 }

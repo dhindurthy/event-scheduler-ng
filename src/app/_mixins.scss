@@ -1,0 +1,51 @@
+@import "_variables.scss";
+@import "_typography.scss";
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin flex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/**
+ * The order for direction is (top right bottom left)
+ * Usage @include padding(2px 4px 6px); 
+ * and result is padding: 2px 4px 6px;
+ */
+@mixin padding($values...) {    
+    @each $var in $values {
+        padding: #{$var};
+    }
+}
+
+/**
+ * The order for direction is (top right bottom left)
+ */
+@mixin margin($values...) {    
+    @each $var in $values {
+        margin: #{$var};
+    }
+}
+
+/**
+ * The order for values is (width style color)
+ */
+@mixin border($values...) {    
+    @each $var in $values {
+        border: #{$var};
+    }
+}
+
+@mixin input ($border,$border-radius,$padding,$margin,$background-color) {
+	@include border($border);
+	border-radius:$border-radius;
+	@include padding($padding);
+	@include margin($margin);
+	background-color:$background-color
+}
