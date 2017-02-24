@@ -49,6 +49,8 @@ export class EventEditComponent implements OnInit {
 
 	eventEditableId: number;
 
+	eventEditableIndex: number;
+
 	/**
 	 * [ngOnInit Function to run the moment page loads]
 	 * Importing the Params which are retrieved iusing switchMap
@@ -60,9 +62,11 @@ export class EventEditComponent implements OnInit {
 	    let subscription = this.route.params.subscribe(params => {
 
 	       let eventId = +params['id']; // (+) converts string 'id' to a number
+	       let eventIndex = +params['i'];
 	       let editableEvent: any = this.privateEventService.getEvent(eventId);
 	       this.eventEditable = editableEvent;
 	       this.eventEditableId = eventId;
+	       this.eventEditableIndex = eventIndex;
 	    });
 	}
 
@@ -71,13 +75,13 @@ export class EventEditComponent implements OnInit {
 	 * Using the location service imported above
 	 */
 	goBack(): void {
+
 	    this.location.back();
 	}
 
 	saveEvent(): void {
-		console.log(this.eventEditable);
-		//add code which refers the service's method which saves the item to localStorage
-		//this.privateEventService.getEvents().then(data => this.events = data);
+
+		this.privateEventService.updateEvent(this.eventEditableIndex,this.eventEditable);
 	}
 
 }
