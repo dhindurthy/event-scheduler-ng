@@ -15,7 +15,7 @@ const myRoutes: Routes = [
   { path: '', redirectTo: '/event', pathMatch: 'full' },
   { path: 'event',  component: EventComponent },
   { path: 'event-add',  component: EventAddComponent },
-  { path: 'event-edit/:id',  component: EventEditComponent },
+  { path: 'event-edit/:id/:i',  component: EventEditComponent },
 ];
 
 /**
