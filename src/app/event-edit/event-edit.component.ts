@@ -29,12 +29,6 @@ import { Location }               from '@angular/common';
 })
 export class EventEditComponent implements OnInit {
 	/**
-	 * [event Defining the type Event]
-	 * @type {Event}
-	 */
-	//eventEditable: Event;
-	@Input() eventEditable: Event;
-	/**
 	 * Constructor is required for every component
 	 * and in case of the usage of a service below 
 	 * declaration of a private instance of that 
@@ -47,6 +41,15 @@ export class EventEditComponent implements OnInit {
 	) { }
 
 	/**
+	 * [event Defining the type Event]
+	 * @type {Event}
+	 */
+	//eventEditable: Event;
+	@Input() eventEditable: Event;
+
+	eventEditableId: number;
+
+	/**
 	 * [ngOnInit Function to run the moment page loads]
 	 * Importing the Params which are retrieved iusing switchMap
 	 * Calling the method in service where we find the specific event by its id
@@ -55,10 +58,11 @@ export class EventEditComponent implements OnInit {
 	ngOnInit(): void {
 
 	    let subscription = this.route.params.subscribe(params => {
+
 	       let eventId = +params['id']; // (+) converts string 'id' to a number
-	       console.log(eventId);
 	       let editableEvent: any = this.privateEventService.getEvent(eventId);
-	       console.log(editableEvent);
+	       this.eventEditable = editableEvent;
+	       this.eventEditableId = eventId;
 	    });
 	}
 

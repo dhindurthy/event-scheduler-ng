@@ -12,15 +12,6 @@ import { EventService } from '../event.service';
 
 export class EventComponent implements OnInit {
 
-	
-	//constructor(private privateEventService: EventService) { }
-	//someEvents: string;
-	/**
-	 * [events This is the 'events' array of tyepe 'Event']
-	 * @type {Event[]}
-	 */
-  	events : any; //the 'Event[]' means its an array of type 'Event'
-
   	/**
 	 * Constructor is required for every component
 	 * and in case of the usage of a service below 
@@ -32,6 +23,12 @@ export class EventComponent implements OnInit {
 	) { 
 		
 	}
+
+	/**
+	 * [events This is the 'events' array of TYPE 'any']
+	 * @type {any}
+	 */
+  	events : any;
 
 	/**
 	 * [ngOnInit This is a lifecycle hook in angular 
@@ -52,5 +49,4 @@ export class EventComponent implements OnInit {
 		let storedEvents: any = this.privateEventService.getEvents<string>('events');
 		this.events = storedEvents;
 	}
-
 }

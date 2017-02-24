@@ -16,7 +16,7 @@ export class EventAddComponent implements OnInit {
 		private privateEventService: EventService
 	) { }
 
-  	events : any;//Event[];
+  	events : any;
 
   	ngOnInit() {
 		
@@ -36,8 +36,7 @@ export class EventAddComponent implements OnInit {
   			storedEvents = existingEvents;
   		} 
   		storedEvents.push(this.model);
-  		console.log(storedEvents);
-	    this.privateEventService.setEvents('events',storedEvents);
+	    this.privateEventService.postEvents('events',storedEvents);
   	}
 
 }
