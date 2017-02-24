@@ -28,15 +28,6 @@ export class EventAddComponent implements OnInit {
 
   	onSubmit() { 
   		this.submitted = true;
-
-  		let existingEvents: any = this.privateEventService.getEvents<string>('events');
-  		let storedEvents: any = [];
-
-  		if(existingEvents){
-  			storedEvents = existingEvents;
-  		} 
-  		storedEvents.push(this.model);
-	    this.privateEventService.postEvents('events',storedEvents);
+	    this.privateEventService.postEvent('events',this.model);
   	}
-
 }

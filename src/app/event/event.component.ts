@@ -46,7 +46,14 @@ export class EventComponent implements OnInit {
   	 * there is method of same name in the service as well]
   	 */
 	getEvents(): void {
+
 		let storedEvents: any = this.privateEventService.getEvents<string>('events');
 		this.events = storedEvents;
+	}
+
+	deleteEvent(i): void {
+
+		this.privateEventService.deleteEvent(i);
+		this.getEvents();
 	}
 }
