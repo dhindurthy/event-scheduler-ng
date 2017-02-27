@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Importing the class 'Event'
+ */
 import { Event } from '../event';
+
+/**
+ * Importing the service where later 
+ * it is privatize the instance
+ */
 import { EventService } from '../event.service';
 
 @Component({
@@ -14,7 +22,7 @@ export class EventComponent implements OnInit {
 
   	/**
 	 * Constructor is required for every component
-	 * and in case of the usage of a service below 
+	 * and in case of the usage of a service, below 
 	 * declaration of a private instance of that 
 	 * service is required
 	 */
@@ -51,6 +59,13 @@ export class EventComponent implements OnInit {
 		this.events = storedEvents;
 	}
 
+	/**
+	 * [deleteEvent Method that is run to delete 
+	 * the event when desired]
+	 * @param {Number} i [The parameter is the index 
+	 * of the event the user hits to be deleted by which 
+	 * the code knows what to delete]
+	 */
 	deleteEvent(i): void {
 
 		this.privateEventService.deleteEvent(i);
