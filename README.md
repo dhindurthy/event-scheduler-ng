@@ -19,10 +19,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 Before running the tests make sure you are serving the app via `ng serve`.
 
 
-##Specifications
+##Technical Specifications
+
+This app uses Angular 2.0, HTML5, CSS3, SCSS, LocalStorage in its environment and for user interaction.
+
+##Notable Features
 
 Coming soon...
 
-##Funtionality
+##Functionality
 
 Coming soon...
