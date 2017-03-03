@@ -1,5 +1,11 @@
 <div class="app-component">
-	{{title}}
+	<nav>
+		<ul>
+		    <li class="events"><a routerLink="/event" routerLinkActive="active">Events</a></li>
+		    <li class="event-add"><a routerLink="/event-add" routerLinkActive="active">Add Event</a></li>
+		    <li class="help"><a>Help</a></li>
+		</ul>
+	</nav>
+	
 	<router-outlet></router-outlet>
-	<!-- <app-event></app-event> -->
 </div>
