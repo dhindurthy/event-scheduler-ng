@@ -28,6 +28,9 @@ export class EventAddComponent implements OnInit {
 
   	onSubmit() { 
   		this.submitted = true;
+  		this.model.id = Math.round(Math.random()*10000);
+  		console.log(this.model);
 	    this.privateEventService.postEvent('events',this.model);
+	    //this.model = new Event(null, '', '', '', '', '','');
   	}
 }

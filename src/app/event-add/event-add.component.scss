@@ -5,10 +5,17 @@
 .container {
 	font-family: $app-font-family;
 	padding: 1rem;
-	margin:2rem;
-	border: 1px solid gray;
+	border: 0.1rem solid gray;
 	background-color: $form-background-color;
 	@include border-radius(2rem);
+	.form-section {
+		padding: 0.8rem;
+	}
+}
+
+form {
+	margin: 2rem;
+	padding: 2rem;
 }
 
 .detail-section {
@@ -63,7 +70,8 @@ input {
 	color: $error-color;
 }
 
-.event-submit-button {
+.event-submit-button, .event-reset-button {
+	font-family: $app-font-family;
 	margin:2rem;
 	padding:0.5rem 1.25rem 0.5rem 1.25rem;
 	color: $button-color;
@@ -72,3 +80,13 @@ input {
 	border-bottom-right-radius: 1rem;
 }
 
+.disabled {
+	background-color: $input-background-color;
+}
+
+.event-reset-button {
+	border-top-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+}
