@@ -22,7 +22,7 @@ export class EventAddComponent implements OnInit {
 		
 	}
 
-	model = new Event(null, '');
+	model = new Event(null, '', '', '', '', '','');
 
   	submitted = false;
 
