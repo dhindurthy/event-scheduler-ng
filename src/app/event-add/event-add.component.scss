@@ -2,10 +2,73 @@
 @import "../_typography.scss";
 @import "../_mixins.scss";
 
-.event-add {
-
-
-
-
-	
+.container {
+	font-family: $app-font-family;
+	padding: 1rem;
+	margin:2rem;
+	border: 1px solid gray;
+	background-color: $form-background-color;
+	@include border-radius(2rem);
 }
+
+.detail-section {
+	@include flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;//whether items wrap to the next row
+	justify-content: space-around; //x-axis
+	div {
+		align-content:space-around;//fact that we have multiple rows
+  		padding: 0.8rem;
+	}
+	.first {
+		-webkit-flex: initial;
+        flex: initial;
+		min-width: 40%;
+	}
+	.middle {
+		-webkit-flex: 1;
+        flex: 1;
+	}
+	.last {
+		-webkit-flex: 2;
+        flex: 2;
+		max-width:45%;
+	}
+	textarea {
+		columns:140;
+		border:none;
+	}
+}
+
+textarea, input{
+	font-family: $app-font-family;
+	border:none;
+	overflow: hidden;
+    outline:none;
+	@include border-radius(0.8rem);
+	padding:0.4rem;
+	background-color: $input-background-color;
+}
+input {
+	height:1.2rem;
+	@include border-radius(0.4rem);
+}
+.input-date {
+	margin-bottom:0.2rem;
+}
+
+.error-message {
+	font-size: $error-font-size;
+	color: $error-color;
+}
+
+.event-submit-button {
+	margin:2rem;
+	padding:0.5rem 1.25rem 0.5rem 1.25rem;
+	color: $button-color;
+	background-color: $button-background-color;
+	border-top-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+}
+

@@ -1,9 +1,5 @@
-<div>
-	  event-add works!
-	<a routerLink="/event" routerLinkActive="active">Back to events</a>
-	<br>
-
-	<div class="container">
+<section class="event-add-section">
+	<!-- <div class="container">
 	    <h1>Event Form</h1>
 	    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
 	      <div>
@@ -23,10 +19,54 @@
 	      </div>
 	      
 	      <button type="submit" [disabled]="!eventForm.form.valid">Submit</button>
-	      <!-- <button type="button" (click)="newEvent(); eventForm.reset()">New Event</button> -->
+	      <button type="button" (click)="newEvent(); eventForm.reset()">New Event</button>
 	    </form>
 	    <br><br><br>
       <div>{{ model.name }}</div><div>AND</div>
       <div>{{ model.id }}</div>
+	</div> -->
+
+
+<form name="infoCard" class="container" tabindex="0" (ngSubmit)="onSubmit()" #eventForm="ngForm">
+	<h3><input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+		<div [hidden]="name.valid || name.pristine" class="error-message">
+          Name is required
+        </div>
+	</h3>
+
+	<div>
+		<textarea class="paragraph" rows="4" cols="150" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="model.description" name="description" #description="ngModel"></textarea>
+		<div [hidden]="description.valid || description.pristine" class="error-message">
+          Description is required
+        </div>
 	</div>
-</div>
+	<section class="detail-section">
+		<div class="first">
+			<textarea cols="60" placeholder="People joining you" aria-label="People" id="people" required [(ngModel)]="model.people" name="people" #people="ngModel"></textarea>
+			<div [hidden]="people.valid || people.pristine" class="error-message">
+	          People is required
+	        </div>
+		</div>
+		<div class="middle">
+			<input type="text" placeholder="Date" class="input-date" aria-label="Date" id="date" required [(ngModel)]="model.date" name="date" #date="ngModel">
+			<div [hidden]="date.valid || date.pristine" class="error-message">
+	          Date is required
+	        </div>
+
+			<input type="text" placeholder="Time" aria-label="Time" id="time" required [(ngModel)]="model.time" name="time" #time="ngModel">
+			<div [hidden]="time.valid || time.pristine" class="error-message">
+	          Time is required
+	        </div>
+		</div>
+		<address class="last">
+			<textarea cols="80" rows="3" placeholder="Enter the Address" aria-label="Address" id="address" required [(ngModel)]="model.address" name="address" #address="ngModel"></textarea>
+			<div [hidden]="address.valid || address.pristine" class="error-message">
+	          Address is required
+	        </div>
+		</address>
+	</section>
+</form>
+
+<button type="submit" [disabled]="!eventForm.form.valid" class="event-submit-button">Submit</button>
+</section>
+<!-- <button type="button" (click)="newEvent(); eventForm.reset()">New Event</button> -->

@@ -57,6 +57,7 @@ export class EventService {
     } 
     if (event) {
       storedEvents.push(event);
+      console.log(storedEvents);
       storedEvents = JSON.stringify(storedEvents);
       localStorage.setItem(key, storedEvents);
     }
