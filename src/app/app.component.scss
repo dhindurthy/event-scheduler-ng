@@ -30,16 +30,15 @@ nav {
 	      &:hover {
 	        color:$nav-item-hover-color;
 	      }
-
 	    }
 	}
 	.active {
 		background-color: $nav-item-active-color;
-		border-radius:1rem;
+		border-radius:0.5rem;
 	}
 	.events {
   		@include flex;
-		min-width: 10%;
+		min-width: 8%;
 	}
 
 	.event-add {
