@@ -26,11 +26,13 @@ export class EventAddComponent implements OnInit {
 
   	submitted = false;
 
+  	formSaved = false;
+
   	onSubmit() { 
   		this.submitted = true;
   		this.model.id = Math.round(Math.random()*10000);
   		console.log(this.model);
 	    this.privateEventService.postEvent('events',this.model);
-	    //this.model = new Event(null, '', '', '', '', '','');
+	    this.formSaved = true;
   	}
 }

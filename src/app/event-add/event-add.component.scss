@@ -2,6 +2,13 @@
 @import "../_typography.scss";
 @import "../_mixins.scss";
 
+.event-interact-section {
+	@include flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;//whether items wrap to the next row
+	justify-content: space-around; //x-axis
+}
 .container {
 	font-family: $app-font-family;
 	padding: 1rem;
@@ -13,9 +20,29 @@
 	}
 }
 
-form {
+form{
 	margin: 2rem;
+	margin-bottom: 0;
 	padding: 2rem;
+	padding-bottom: 0;
+}
+
+.confirmation-message {
+	border: 1px solid black;
+	margin: 5rem;
+	padding: 5rem;
+	color: $nav-color;
+	background-color:$nav-background-color;
+}
+.shadow {
+	opacity: 0.5;
+}
+
+.body {
+	opacity: 0.75;
+	-ms-transform: translate(5rem,-12.5rem); /* IE 9 */
+	-webkit-transform: translate(5rem,-12.5rem); /* Safari */
+	transform: translate(5rem,-12.5rem); /* Standard syntax */
 }
 
 .detail-section {
@@ -27,6 +54,10 @@ form {
 	div {
 		align-content:space-around;//fact that we have multiple rows
   		padding: 0.8rem;
+	}
+	.error-message {
+		padding:0;
+		padding-bottom: 0.5rem;
 	}
 	.first {
 		-webkit-flex: initial;
@@ -72,12 +103,18 @@ input {
 
 .event-submit-button, .event-reset-button {
 	font-family: $app-font-family;
-	margin:2rem;
+	margin:1.5rem ;
 	padding:0.5rem 1.25rem 0.5rem 1.25rem;
 	color: $button-color;
 	background-color: $button-background-color;
 	border-top-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
+	cursor: pointer;
+	box-shadow: 0.25rem 0.75rem 0.5rem #888888;
+	&:active {
+		transform: translate(0.25rem, 0.75rem);
+    	box-shadow: none;
+	}
 }
 
 .disabled {

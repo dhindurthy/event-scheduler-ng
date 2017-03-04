@@ -1,5 +1,5 @@
-<section class="event-add-section">
-	<form name="infoCard" tabindex="0" (ngSubmit)="onSubmit(); eventForm.reset()" #eventForm="ngForm">
+<section class="event-interact-section">
+	<form name="eventForm" tabindex="0" (ngSubmit)="onSubmit(); eventForm.reset()" #eventForm="ngForm" [hidden]="formSaved">
 		<section class="container" >
 			<section class="form-section">
 				<input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
@@ -15,7 +15,7 @@
 			</section>
 			<section class="detail-section">
 				<div class="first">
-					<textarea cols="60" placeholder="People joining you" aria-label="People" id="people" required [(ngModel)]="model.people" name="people" #people="ngModel"></textarea>
+					<textarea cols="65" placeholder="People joining you" aria-label="People" id="people" required [(ngModel)]="model.people" name="people" #people="ngModel"></textarea>
 					<div [hidden]="people.valid || people.pristine" class="error-message">
 			          People is required
 			        </div>
@@ -32,7 +32,7 @@
 			        </div>
 				</div>
 				<address class="last">
-					<textarea cols="80" rows="3" placeholder="Enter the Address" aria-label="Address" id="address" required [(ngModel)]="model.address" name="address" #address="ngModel"></textarea>
+					<textarea cols="70" rows="3" placeholder="Enter the Address" aria-label="Address" id="address" required [(ngModel)]="model.address" name="address" #address="ngModel"></textarea>
 					<div [hidden]="address.valid || address.pristine" class="error-message">
 			          Address is required
 			        </div>
@@ -42,4 +42,12 @@
 		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button">Save it!</button>
 		<button type="button" (click)="eventForm.reset()" class="event-reset-button">Clear it!</button>
 	</form>
+	<section [hidden]="!formSaved">
+		<div class="confirmation-message shadow">
+			EVENT IS NOW ADDED!
+		</div>
+		<div class="confirmation-message body">
+			EVENT IS NOW ADDED!
+		</div>
+	</section>
 </section>
