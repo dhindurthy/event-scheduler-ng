@@ -79,9 +79,12 @@ export class EventEditComponent implements OnInit {
 	    this.location.back();
 	}
 
-	saveEvent(): void {
+	formSaved = false;
+
+	onSubmit(): void {
 
 		this.privateEventService.updateEvent(this.eventEditableIndex,this.eventEditable);
+		this.formSaved = true;
 	}
 
 }

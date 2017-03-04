@@ -1,15 +1,61 @@
-
-  event-edit works!
-  The event you edit is 
-
-<div *ngIf="eventEditable">
-  <h3>{{eventEditable.name}}</h3>
+<section *ngIf="eventEditable" class="event-interact-section">
+ <!--  <h3>{{eventEditable.name}}</h3>
  
     <label>name: </label>
     <input [(ngModel)]="eventEditable.name" placeholder="name" />
     <input [(ngModel)]="eventEditable.id" placeholder="id" />
-    <button (click)="saveEvent()">Save</button>
-    <br>
-  	<button (click)="goBack()">Back</button>
-</div>
+    <button (click)="saveEvent()">Save</button> -->
+
+    <form name="eventForm" tabindex="0" (ngSubmit)="onSubmit(); eventForm.reset()" #eventForm="ngForm" [hidden]="formSaved">
+		<section class="container" >
+			<section class="form-section">
+				<input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="eventEditable.name" name="name" #name="ngModel">
+				<div [hidden]="name.valid || name.pristine" class="error-message">
+		          Name is required
+		        </div>
+			</section>
+			<section class="form-section">
+				<textarea class="paragraph" rows="4" cols="150" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="eventEditable.description" name="description" #description="ngModel"></textarea>
+				<div [hidden]="description.valid || description.pristine" class="error-message">
+		          Description is required
+		        </div>
+			</section>
+			<section class="detail-section">
+				<div class="first">
+					<textarea cols="65" placeholder="People joining you" aria-label="People" id="people" required [(ngModel)]="eventEditable.people" name="people" #people="ngModel"></textarea>
+					<div [hidden]="people.valid || people.pristine" class="error-message">
+			          People is required
+			        </div>
+				</div>
+				<div class="middle">
+					<input type="text" placeholder="Date" class="input-date" aria-label="Date" id="date" required [(ngModel)]="eventEditable.date" name="date" #date="ngModel">
+					<div [hidden]="date.valid || date.pristine" class="error-message">
+			          Date is required
+			        </div>
+
+					<input type="text" placeholder="Time" aria-label="Time" id="time" required [(ngModel)]="eventEditable.time" name="time" #time="ngModel">
+					<div [hidden]="time.valid || time.pristine" class="error-message">
+			          Time is required
+			        </div>
+				</div>
+				<address class="last">
+					<textarea cols="70" rows="3" placeholder="Enter the Address" aria-label="Address" id="address" required [(ngModel)]="eventEditable.address" name="address" #address="ngModel"></textarea>
+					<div [hidden]="address.valid || address.pristine" class="error-message">
+			          Address is required
+			        </div>
+				</address>
+			</section>
+		</section>
+		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button">Save it!</button>
+		<button type="button" (click)="eventForm.reset()" class="event-reset-button">Clear it!</button>
+	</form>
+	<section [hidden]="!formSaved">
+		<div class="confirmation-message shadow">
+			EVENT IS NOW EDITED!
+		</div>
+		<div class="confirmation-message body">
+			EVENT IS NOW EDITED!
+		</div>
+	</section>
+</section>
 
