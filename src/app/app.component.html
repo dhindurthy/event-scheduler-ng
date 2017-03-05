@@ -1,11 +1,16 @@
-<div class="app-component">
+<section class="app-component">
 	<nav>
 		<ul>
-		    <li class="events"><a routerLink="/event" routerLinkActive="active">Events</a></li>
-		    <li class="event-add"><a routerLink="/event-add" routerLinkActive="active">Add Event</a></li>
+		    <li class="events"><a routerLink="/event" routerLinkActive="active">List</a></li>
+		    <li class="event-add"><a routerLink="/event-add" routerLinkActive="active">Add</a></li>
 		    <li class="help"><a>Help</a></li>
 		</ul>
 	</nav>
-	
-	<router-outlet></router-outlet>
-</div>
+	<!-- <aside>
+		<div class="aside-one"><a>A</a></div>
+		<div class="aside-two"><a>as</a></div>
+	</aside> -->
+	<section class="router-outlet">
+		<router-outlet></router-outlet>
+	</section>
+</section>

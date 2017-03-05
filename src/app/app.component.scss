@@ -4,6 +4,9 @@
 @import "event-edit/event-edit.component.scss";
 @import "event-add/event-add.component.scss";
 @import "event/event.component.scss";
+.app-component {
+
+}
 
 nav {
 	@include flex;
@@ -32,12 +35,9 @@ nav {
 	      }
 	    }
 	}
-	.active {
-		background-color: $nav-item-active-color;
-		border-radius:0.5rem;
-	}
 	.events {
-  		@include flex;
+  		-webkit-flex: initial;
+        flex: initial;
 		min-width: 8%;
 	}
 
@@ -51,4 +51,43 @@ nav {
 		-webkit-flex: 2;
         flex: 2;
 	}
+
+	.active {
+		background-color: $nav-item-active-color;
+		border-radius:0.5rem;
+	}
 }
+
+.router-outlet {
+	//width:85%;
+}
+
+// aside {
+// 	padding:1rem;
+// 	//padding-left:0;
+// 	margin:2rem;
+// 	margin-left: 0;
+// 	width:1%;
+// 	height:20rem;
+// 	border:1px solid black;
+// 	display: -webkit-flex;
+//    	display: flex;
+// 	-webkit-flex-direction: column;
+// 	flex-direction: column;
+// 	color: $nav-color;
+// 	background-color:$nav-background-color;
+// 	border-bottom:0.75rem solid $nav-color;
+// 	border-top:0.75rem solid $nav-color;
+// 	border-right:0.75rem solid $nav-color;
+// 	.aside-one {
+// 		min-height:50%;
+// 	}
+// 	a {
+// 		text-decoration:none;
+// 		color:inherit;
+//       &:hover {
+//         color:$nav-item-hover-color;
+//         cursor:pointer;
+//       }
+//     }
+// }
