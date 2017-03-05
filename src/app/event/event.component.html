@@ -1,9 +1,33 @@
-<!-- <a routerLink="/event-add" routerLinkActive="active">Add an Event</a> -->
-<div class="events-container">
-	event list works! <br>
-  <div *ngFor="let event of events; let i = index" [attr.data-index]="i">
+<!--   <div *ngFor="let event of events; let i = index" [attr.data-index]="i">
     <a [routerLink]="['/event-edit', event.id, i]"> {{event.name}} </a>
 
     <button (click)="deleteEvent(i)">Delete</button><br>
-  </div>
-</div>
+  </div> -->
+
+<section class="parent-container">
+  <!-- <section class="container" tabindex="0" *ngFor="let event of events; let i = index" [attr.data-index]="i">
+    <a [routerLink]="['/event-edit', event.id, i]"> {{event.name}} </a>
+    <button (click)="deleteEvent(i)">Delete</button><br>
+
+  </section> -->
+
+  <section class="container" tabindex="0" *ngFor="let event of events; let i = index" [attr.data-index]="i">
+  	<button class="delete-button" (click)="deleteEvent(i)">X</button>
+	<h3 [routerLink]="['/event-edit', event.id, i]">{{event.name}}</h3>
+	
+	<p>{{event.description}}</p>
+	<section class="detail-section">
+		<div class="first">
+			{{event.people}}
+		</div>
+		<div class="middle">
+			<time datetime="2017-02-14 20:00">{{event.date}}</time><br>
+			<time datetime="2017-02-14 20:00">{{event.time}}</time>
+		</div>
+		<address class="last">
+			{{event.address}} 
+		</address>
+	</section>
+</section>
+  
+</section>

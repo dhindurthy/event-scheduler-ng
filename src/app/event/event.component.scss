@@ -1,10 +1,87 @@
 @import "../_variables.scss";
 @import "../_typography.scss";
 @import "../_mixins.scss";
-.event {
 
+.parent-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;//whether items wrap to the next row
+  justify-content: space-around; //x-axis
+  //align-items:center; //y-axis //commented coz space-around is getting it to center anyway
+  align-content:space-around;//fact that we have multiple rows
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+.container {
+  min-width: 10rem;//to introduce a new row
+  min-height: 8rem;
+  flex: 1 0 auto;// property that allows fluid widths of boxes to fill up - Three values: flex-grow | flex-shrink | flex-basis
+  margin: 0.25em;//or else there is no space around happening as the 'height' of section is not given as its not predictable
+}
 
+.container {
+	font-size:0.75rem;
+	padding:0.25rem;
+	word-spacing: 0.30rem;
+	line-height: 1.25rem;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	border: 1px solid gray;
+	border-radius:2rem;
+	background-color:#80F3F0;
+	h3 {
+		cursor: pointer;
+		&:hover {
+			color:$nav-color;
+		}
+	}
+}
 
-
-	
+p {
+	margin-left:3.5%;
+}
+.detail-section {
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;//whether items wrap to the next row
+	justify-content: space-around; //x-axis
+	div {
+		align-content:space-around;//fact that we have multiple rows
+  		padding: 0.8rem;
+	}
+	.first {
+		 -webkit-flex: initial;
+            flex: initial;
+        min-width: 30%;
+		max-width: 45%;
+	}
+	.middle {
+		-webkit-flex: 1;
+            flex: 1;
+        max-width: 20%;
+	}
+	.last {
+		-webkit-flex: 2;
+            flex: 2;
+		max-width:30%;
+	}
+}
+h3 {
+	// display: inline;
+	// margin-left: 1rem;
+	// margin-top: 2rem;
+}
+.delete-button {
+	font-family: $app-font-family;
+	margin:0.5rem ;
+	//padding:0.5rem 1.25rem 0.5rem 1.25rem;
+	color: $button-color;
+	background-color: $button-background-color;
+	border:none;
+	border-radius: 1rem;
+	//border-bottom-right-radius: 1rem;
+	cursor: pointer;
+	float:right;
+	display: inline;
 }
