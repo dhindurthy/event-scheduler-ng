@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+//import { Pipe, PipeTransform } from '@angular/core';
 /**
  * Importing the class 'Event'
  */
@@ -11,11 +11,14 @@ import { Event } from '../event';
  */
 import { EventService } from '../event.service';
 
+import { EventFilterPipe } from '../event-filter.pipe';
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.scss'],
-  providers: [EventService]
+  providers: [EventService],
+  //pipes: [EventFilterPipe]
 })
 
 export class EventComponent implements OnInit {

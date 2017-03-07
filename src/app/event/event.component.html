@@ -1,17 +1,7 @@
-<!--   <div *ngFor="let event of events; let i = index" [attr.data-index]="i">
-    <a [routerLink]="['/event-edit', event.id, i]"> {{event.name}} </a>
-
-    <button (click)="deleteEvent(i)">Delete</button><br>
-  </div> -->
-
 <section class="parent-container">
-  <!-- <section class="container" tabindex="0" *ngFor="let event of events; let i = index" [attr.data-index]="i">
-    <a [routerLink]="['/event-edit', event.id, i]"> {{event.name}} </a>
-    <button (click)="deleteEvent(i)">Delete</button><br>
 
-  </section> -->
-
-  <section class="container" tabindex="0" *ngFor="let event of events; let i = index" [attr.data-index]="i">
+  <input type=”text” #listFilter (keyup)="0" />
+  <section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i">
   	<button class="delete-button" (click)="deleteEvent(i)">X</button>
 	<h3 [routerLink]="['/event-edit', event.id, i]">{{event.name}}</h3>
 	
