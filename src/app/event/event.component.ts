@@ -11,14 +11,11 @@ import { Event } from '../event';
  */
 import { EventService } from '../event.service';
 
-import { EventFilterPipe } from '../event-filter.pipe';
-
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.scss'],
-  providers: [EventService],
-  //pipes: [EventFilterPipe]
+  providers: [EventService]
 })
 
 export class EventComponent implements OnInit {

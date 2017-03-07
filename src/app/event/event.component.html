@@ -1,6 +1,9 @@
-<section class="parent-container">
 
-  <input type=”text” #listFilter (keyup)="0" />
+<fieldset>
+	<label for="event-search">Search :</label>
+	<input id="event-search" type=”text” #listFilter (keyup)="0" class="event-search" />
+</fieldset>
+<section class="parent-container">
   <section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i">
   	<button class="delete-button" (click)="deleteEvent(i)">X</button>
 	<h3 [routerLink]="['/event-edit', event.id, i]">{{event.name}}</h3>

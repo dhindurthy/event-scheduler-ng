@@ -2,6 +2,24 @@
 @import "../_typography.scss";
 @import "../_mixins.scss";
 
+input{
+	font-family: $app-font-family;
+	border:none;
+	overflow: hidden;
+    outline:none;
+	@include border-radius(0.8rem);
+	padding:0.4rem;
+	background-color: $input-background-color;
+	height:1rem;
+	margin:0.5rem;
+	margin-bottom: 0;
+}
+ fieldset {
+ 	border:none;
+ 	color: $nav-color;
+
+	//background-color:$nav-background-color;
+ }
 .parent-container {
   display: flex;
   flex-direction: row;
@@ -10,6 +28,7 @@
   //align-items:center; //y-axis //commented coz space-around is getting it to center anyway
   align-content:space-around;//fact that we have multiple rows
   padding: 1.5rem;
+  padding-top: 0.25rem;
   margin: 0 auto;
 }
 .container {
