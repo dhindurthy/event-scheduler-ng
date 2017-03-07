@@ -4,9 +4,10 @@
     <label>name: </label>
     <input [(ngModel)]="eventEditable.name" placeholder="name" />
     <input [(ngModel)]="eventEditable.id" placeholder="id" />
-    <button (click)="saveEvent()">Save</button> -->
+     -->
 
     <form name="eventForm" tabindex="0" (ngSubmit)="onSubmit(); eventForm.reset()" #eventForm="ngForm" [hidden]="formSaved">
+    	<button (click)="goBack()" class="event-reset-button back-button"><-- No Updates</button>
 		<section class="container" >
 			<section class="form-section">
 				<input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="eventEditable.name" name="name" #name="ngModel">
@@ -15,7 +16,7 @@
 		        </div>
 			</section>
 			<section class="form-section">
-				<textarea class="paragraph" rows="4" cols="150" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="eventEditable.description" name="description" #description="ngModel"></textarea>
+				<textarea class="paragraph" rows="4" cols="100" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="eventEditable.description" name="description" #description="ngModel"></textarea>
 				<div [hidden]="description.valid || description.pristine" class="error-message">
 		          Description is required
 		        </div>
