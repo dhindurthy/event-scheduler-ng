@@ -11,6 +11,7 @@ import { EventService } from './event.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { EventEditComponent } from './event-edit/event-edit.component';
+import { EventFilterPipe } from './event-filter.pipe';
 
 /**
  * [enableProdMode To enable the production mode]
@@ -29,7 +30,8 @@ enableProdMode();
     AppComponent,
     EventComponent,
     EventAddComponent,
-    EventEditComponent
+    EventEditComponent,
+    EventFilterPipe
   ],
   imports: [ /** All the angular modules need to be imported here**/
     BrowserModule,
