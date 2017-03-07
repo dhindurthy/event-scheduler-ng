@@ -8,7 +8,7 @@
 		        </div>
 			</section>
 			<section class="form-section">
-				<textarea class="paragraph" rows="4" cols="150" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="model.description" name="description" #description="ngModel"></textarea>
+				<textarea class="paragraph" rows="4" cols="100" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="model.description" name="description" #description="ngModel"></textarea>
 				<div [hidden]="description.valid || description.pristine" class="error-message">
 		          Description is required
 		        </div>
@@ -42,11 +42,11 @@
 		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button">Save it!</button>
 		<button type="button" (click)="eventForm.reset()" class="event-reset-button">Clear it!</button>
 	</form>
-	<section [hidden]="!formSaved">
-		<div class="confirmation-message shadow">
+	<section [hidden]="!formSaved" class="confirmation">
+		<div class="confirmation-message confirmation-message-shadow">
 			EVENT IS NOW ADDED!
 		</div>
-		<div class="confirmation-message body">
+		<div class="confirmation-message confirmation-message-body">
 			EVENT IS NOW ADDED!
 		</div>
 	</section>

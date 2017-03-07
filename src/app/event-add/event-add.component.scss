@@ -12,12 +12,24 @@
 .container {
 	font-family: $app-font-family;
 	padding: 1rem;
-	border: 0.1rem solid gray;
 	background-color: $form-background-color;
 	@include border-radius(2rem);
 	.form-section {
 		padding: 0.8rem;
 	}
+	&:hover {
+		box-shadow:0.75rem 0.75rem 0.5rem $box-shadow-color;
+		transform: translate(-0.25rem, -0.75rem);
+	}
+
+	-webkit-transition-property: width height background-color font-size left top color;
+    -webkit-transition-duration:0.5s;
+    -webkit-transition-delay:0;
+    -webkit-transition-timing-function: linear;
+    transition-property: width height background-color font-size left top color;
+    transition-duration:0.5s;
+    transition-delay:0;
+    transition-timing-function: linear;
 }
 
 form{
@@ -27,6 +39,9 @@ form{
 	padding-bottom: 0;
 }
 
+.confirmation {
+	
+}
 .confirmation-message {
 	border: 1px solid black;
 	margin: 5rem;
@@ -34,11 +49,11 @@ form{
 	color: $nav-color;
 	background-color:$nav-background-color;
 }
-.shadow {
+.confirmation-message-shadow {
 	opacity: 0.5;
 }
 
-.body {
+.confirmation-message-body {
 	opacity: 0.75;
 	-ms-transform: translate(5rem,-12.5rem); /* IE 9 */
 	-webkit-transform: translate(5rem,-12.5rem); /* Safari */
@@ -107,18 +122,29 @@ input {
 	padding:0.5rem 1.25rem 0.5rem 1.25rem;
 	color: $button-color;
 	background-color: $button-background-color;
+	border: 0.35rem outset $button-background-color;
 	border-top-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
 	cursor: pointer;
-	box-shadow: 0.25rem 0.75rem 0.5rem #888888;
+	box-shadow: 0.25rem 0.75rem 0.5rem $box-shadow-color;
 	&:active {
 		transform: translate(0.25rem, 0.75rem);
     	box-shadow: none;
 	}
+
+	&:hover {
+		color: $form-background-color;
+	}
+	transition: color 0.5s;
+	//border:none;
 }
 
 .disabled {
 	background-color: $input-background-color;
+	border: 0.35rem outset $input-background-color;
+	&:hover {
+		color: $error-color;
+	}
 }
 
 .event-reset-button {
@@ -126,4 +152,5 @@ input {
 	border-bottom-right-radius: 0;
 	border-top-right-radius: 1rem;
 	border-bottom-left-radius: 1rem;
+
 }
