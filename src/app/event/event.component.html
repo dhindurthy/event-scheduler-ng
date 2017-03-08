@@ -4,8 +4,8 @@
 	<input id="event-search" type=”text” #listFilter (keyup)="0" class="event-search" />
 </fieldset>
 
-<section class="parent-container" group="one" id="one" appEventDroppable (dropSection)="onDrop($event)">
-  	<section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{data: event}" group="one">
+<section class="parent-container" group="one" id="one" appEventDroppable (dropSection)="onDropInActive($event)">
+  	<section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" group="one">
 	  	<button class="delete-button" (click)="deleteEvent(i)">X</button>
 		<h3 [routerLink]="['/event-edit', event.id, i]">{{event.name}}</h3>
 		
@@ -25,8 +25,8 @@
 	</section>
 </section>
 
-<section class="parent-container" style="border: 1px solid red; width:950px;height:150px;" group="two" id="two" appEventDroppable (dropSection)="onDrop($event)">
- <section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{data: event}" group="two">
+<section class="parent-container" style="border: 1px solid red; width:950px;height:150px;" group="two" id="two" appEventDroppable (dropSection)="onDropInCancelled($event)">
+ <section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" group="two">
 	  	<button class="delete-button" (click)="deleteEvent(i)">X</button>
 		<h3 [routerLink]="['/event-edit', event.id, i]">{{event.name}}</h3>
 		

@@ -74,7 +74,11 @@ export class EventComponent implements OnInit {
 		this.getEvents();
 	}
 
-	onDrop(data: any) {
-	    console.log('dropped:', data);
+	onDropInActive(eventData: any) {
+	    console.log('dropped:', eventData);
+	}
+
+	onDropInCancelled(eventData: any) {
+	    console.log('dropped:', eventData);
 	}
 }
