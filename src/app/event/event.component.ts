@@ -48,6 +48,8 @@ export class EventComponent implements OnInit {
 		this.getEvents();
 	}
 
+	color = 'green';
+
   	/**
   	 * [getEvents Method that retrieves the data of all 'Events' 
   	 * from the service is being called here. Note that 
@@ -70,5 +72,9 @@ export class EventComponent implements OnInit {
 
 		this.privateEventService.deleteEvent(i);
 		this.getEvents();
+	}
+
+	onDrop(data: any) {
+	    console.log('dropped:', data);
 	}
 }

@@ -14,12 +14,27 @@ input{
 	margin:0.5rem;
 	margin-bottom: 0;
 }
- fieldset {
+
+.event-drag {
+  // border: 1px dashed gray;
+  background-color: gray !important;
+}
+
+.event-drag-action {
+  // border: 1px dashed gray;
+  background-color: orange !important;
+}
+
+.drag-action-disabled {
+	background-color: red !important;
+}
+
+fieldset {
  	border:none;
  	color: $nav-color;
 
 	//background-color:$nav-background-color;
- }
+}
 .parent-container {
   display: flex;
   flex-direction: row;
