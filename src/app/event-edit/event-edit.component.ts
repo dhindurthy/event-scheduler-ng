@@ -27,6 +27,7 @@ import { Location }               from '@angular/common';
 	templateUrl: './event-edit.component.html',
 	styleUrls: ['./event-edit.component.scss']
 })
+
 export class EventEditComponent implements OnInit {
 	/**
 	 * Constructor is required for every component
