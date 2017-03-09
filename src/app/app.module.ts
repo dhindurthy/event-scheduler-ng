@@ -15,6 +15,10 @@ import { EventFilterPipe } from './event-filter.pipe';
 import { EventDraggableDirective } from './event-draggable.directive';
 import { EventDroppableDirective } from './event-droppable.directive';
 
+import { LocalizationService } from './localization/localization.service';
+import { LOCALIZATIONS } from './localization/localization';
+import { lookup } from './localization/localization';
+
 /**
  * [enableProdMode To enable the production mode]
  */
@@ -43,7 +47,26 @@ enableProdMode();
     HttpModule,
     AppRoutingModule
   ],
-  providers: [EventService], /** All the Services need to be provided here**/
+
+  //providers: [EventService], /** All the Services need to be provided here**/
+  /**
+   *  The below definition is the expanded form of
+   *  the above commented way to declare the providers in 
+   *  the component class. Below array contains 'provide' object literals 
+   *  that contains a pair of token(sometimes an opaque token) and a definition object.
+   *  The definition object has one main property, (e.g. useClass) 
+   *  that indicates how the provider should create or return the provided value.
+   *  Set the useClass property to a fixed value that the provider 
+   *  can return as the dependency object. Technique to provide runtime configuration
+   *  constants such as web-site base addresses and feature flags.
+   *  In this case, the provider token is a class that is also the type of 
+   *  the returned dependency object (what we usually call the service).
+   */
+  providers: [
+    { provide: EventService,   useClass:    EventService },
+    { provide: LocalizationService,   useClass:    LocalizationService },
+    { provide: LOCALIZATIONS, useValue: lookup }
+  ],
   bootstrap: [AppComponent]  /** It is where component is bootstrapped**/
 })
 export class AppModule { }
