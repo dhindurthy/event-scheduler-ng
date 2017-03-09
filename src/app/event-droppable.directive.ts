@@ -62,9 +62,6 @@ export class EventDroppableDirective {
     let itemStartsAt = document.getElementById(eventData.id).getAttribute('group');
     let targetAreaId = event.target.id;
     let itemEndsIn = event.target.getAttribute('group');
-    console.log('item started in: ' +itemStartsAt);
-    console.log("target area's id: " + targetAreaId);
-    console.log('item ended in: ' + itemEndsIn);
 
     /**
      * itemEndsIn //should be available and non-empty
