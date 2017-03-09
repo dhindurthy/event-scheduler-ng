@@ -8,7 +8,7 @@ import { EventService } from '../event.service';
 	selector: 'app-event-add',
 	templateUrl: './event-add.component.html',
 	styleUrls: ['./event-add.component.scss'],
-	providers: [EventService]
+	//providers: [EventService]//don't need this as per latest versions
 })
 export class EventAddComponent implements OnInit {
 
