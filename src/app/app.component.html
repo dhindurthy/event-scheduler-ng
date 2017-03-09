@@ -2,8 +2,15 @@
 	<nav>
 		<ul>
 		    <li class="events"><a routerLink="/event" routerLinkActive="active">List</a></li>
-		    <li class="event-add"><a routerLink="/event-add" routerLinkActive="active">Add</a></li>
+		    <li class="event-add"><a routerLink="/event-add" routerLinkActive="active">{{ translateAdd }}</a></li>
 		    <li class="help"><a>Help</a></li>
+		    <li class="locales">
+		    	<select [ngModel]="chosenLocale" (ngModelChange)="selectLocale($event)">
+		    		<option *ngFor="let locale of supportedLocales" [value]="locale.value" class="btn btn-default">
+			      		{{ locale.locale }}
+			  		</option>
+			    </select>
+		    </li>
 		</ul>
 	</nav>
 	<!-- <aside>

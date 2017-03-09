@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { LocalizationService } from './localization/localization.service';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +26,42 @@ import { Component } from '@angular/core';
    */
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  // title = 'Test Works!';
-  // bindingValue = "binding";
+
+export class AppComponent implements OnInit {
+
+  public supportedLocales: any[];
+
+  public translateAdd: string;
+
+  public chosenLocale: string;
+
+  /**
+   * Constructor is required for every component
+   * and in case of the usage of a service, below 
+   * declaration of a private instance of that 
+   * service is required
+   */
+  constructor(
+    private _localize: LocalizationService
+  ) { 
+    
+  }
+
+  ngOnInit() {
+
+    this.supportedLocales = [
+        { locale: 'English', value: 'en' },
+        { locale: 'Español', value: 'es' },
+      ];
+
+      this.selectLocale('es');
+  }
+
+  selectLocale(locale: string) {
+
+    this.chosenLocale = locale;
+    this._localize.useLocale(locale);
+    this.translateAdd = this._localize.localize('add');
+  }
 
 }

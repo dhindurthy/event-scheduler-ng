@@ -52,6 +52,11 @@ nav {
         flex: 2;
 	}
 
+	.locales {
+		-webkit-flex: 3;
+        flex: 3;
+	}
+
 	.active {
 		background-color: $nav-item-active-color;
 		border-radius:0.5rem;
