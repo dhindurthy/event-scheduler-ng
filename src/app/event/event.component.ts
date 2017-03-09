@@ -11,11 +11,13 @@ import { Event } from '../event';
  */
 import { EventService } from '../event.service';
 
+import { LocalizationService } from '../localization/localization.service';
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.scss'],
-  providers: [EventService]
+  //providers: [EventService]//don't need this as per latest versions
 })
 
 export class EventComponent implements OnInit {
@@ -27,7 +29,8 @@ export class EventComponent implements OnInit {
 	 * service is required
 	 */
 	constructor(
-		private privateEventService: EventService
+		private privateEventService: EventService,
+		private privateLocalizationService: LocalizationService
 	) { 
 		
 	}
@@ -74,11 +77,46 @@ export class EventComponent implements OnInit {
 		this.getEvents();
 	}
 
+	cancelledEvents = [];
 	onDropInActive(eventData: any) {
 	    console.log('dropped:', eventData);
+	    let eventId = eventData.id;
+	    for (var i = 0; i < this.cancelledEvents.length; i++) {
+	    	if (this.cancelledEvents[i].id === eventId) {
+				this.cancelledEvents.splice(i, 1);
+			}
+	    }
+	    let cancelledEvents = (JSON.parse(JSON.stringify(this.cancelledEvents)));
+		var movedEvent = eventData;
+
+		/**
+		 * This will make it happen in cache but not in localstorage
+		 * So the post event should be done here
+		 */
+		this.events.push(movedEvent);
 	}
 
 	onDropInCancelled(eventData: any) {
-	    console.log('dropped:', eventData);
+	    console.log('dropped in cancelled:', eventData);
+	    let eventId = eventData.id;
+	    console.log(eventId);
+	    //let events = 
+	    for (var i = 0; i < this.events.length; i++) {
+	    	if (this.events[i].id === eventId) {
+				this.events.splice(i, 1);
+			}
+	    }
+	    console.log(this.events);
+	    let events = (JSON.parse(JSON.stringify(this.events)));
+	    console.log(events);
+		var movedEvent = eventData;
+		movedEvent.id =  Math.round(Math.random()*10000);
+		console.log(movedEvent);
+
+		/**
+		 * This will make it happen in cache but not in localstorage
+		 * So the post event should be done here
+		 */
+		this.cancelledEvents.push(movedEvent);
 	}
 }

@@ -2,6 +2,8 @@
 @import "../_typography.scss";
 @import "../_mixins.scss";
 
+$event-background-color: #80F3F0;
+
 input{
 	font-family: $app-font-family;
 	border:none;
@@ -15,25 +17,9 @@ input{
 	margin-bottom: 0;
 }
 
-.event-drag {
-  // border: 1px dashed gray;
-  background-color: gray !important;
-}
-
-.event-drag-action {
-  // border: 1px dashed gray;
-  background-color: orange !important;
-}
-
-.drag-action-disabled {
-	background-color: red !important;
-}
-
 fieldset {
  	border:none;
  	color: $nav-color;
-
-	//background-color:$nav-background-color;
 }
 .parent-container {
   display: flex;
@@ -49,6 +35,7 @@ fieldset {
 .container {
   min-width: 10rem;//to introduce a new row
   min-height: 8rem;
+  max-width:40rem; //should be reduced according to screen size reduction so media query
   flex: 1 0 auto;// property that allows fluid widths of boxes to fill up - Three values: flex-grow | flex-shrink | flex-basis
   margin: 0.25em;//or else there is no space around happening as the 'height' of section is not given as its not predictable
 }
@@ -61,7 +48,7 @@ fieldset {
 	font-family:"Comic Sans MS", cursive, sans-serif;
 	border: 1px solid gray;
 	border-radius:2rem;
-	background-color:#80F3F0;
+	background-color: $event-background-color;
 	h3 {
 		cursor: pointer;
 		&:hover {
@@ -120,4 +107,61 @@ h3 {
 		transform: translate(0.25rem, 0.25rem);
     	box-shadow: none;
 	}
+}
+
+.cancelled-parent-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;//whether items wrap to the next row
+  justify-content: space-around; //x-axis
+  //align-items:center; //y-axis //commented coz space-around is getting it to center anyway
+  align-content:space-around;//fact that we have multiple rows
+  padding: 8rem;
+  margin-left: 0rem;
+  margin-top: 2rem;
+  width:30%;
+  height:8rem;
+  border: 0.75rem solid $nav-color;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  	#container-background {
+		position: absolute;
+		z-index: -1;
+		overflow: hidden;
+		opacity: 0.15;
+		color: $nav-color;
+		font-size: 4rem;
+	}
+  	.container {
+  		min-width: 3rem;
+		min-height: 1.5rem;
+  		max-width:12rem;
+  		max-height:8rem;
+		word-spacing: 0.10rem;
+		line-height: 0.75rem;
+		flex: 1 0 auto;
+		margin: 0.1em;
+		font-size:0.5rem;
+		border-radius: none;
+		position: relative;
+		h3{
+			//margin-left: 6rem;
+			padding-top:0.1rem;
+			padding-bottom:0.1rem;
+		}
+	}
+}
+
+.event-drag {
+  border: 1px dashed gray;
+  background-color: gray !important;
+}
+
+.event-drag-action {
+  border: 1px dashed gray;
+  background-color: orange !important;
+}
+
+.drag-action-disabled {
+	background-color: red !important;
 }

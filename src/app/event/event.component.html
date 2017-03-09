@@ -25,23 +25,17 @@
 	</section>
 </section>
 
-<section class="parent-container" style="border: 1px solid red; width:950px;height:150px;" group="two" id="two" appEventDroppable (dropSection)="onDropInCancelled($event)">
- <section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" group="two">
-	  	<button class="delete-button" (click)="deleteEvent(i)">X</button>
-		<h3 [routerLink]="['/event-edit', event.id, i]">{{event.name}}</h3>
-		
-		<p>{{event.description}}</p>
+<section class="cancelled-parent-container" group="two" id="two" appEventDroppable (dropSection)="onDropInCancelled($event)">
+	<div id="container-background">
+    	Cancelled Events
+    </div>
+ 	<section class="container" tabindex="0" *ngFor="let event of cancelledEvents | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" group="two">
 		<section class="detail-section">
-			<div class="first">
-				{{event.people}}
-			</div>
+			<h3>{{event.name}}</h3>
 			<div class="middle">
 				<time datetime="2017-02-14 20:00">{{event.date}}</time><br>
 				<time datetime="2017-02-14 20:00">{{event.time}}</time>
 			</div>
-			<address class="last">
-				{{event.address}} 
-			</address>
 		</section>
 	</section>
 </section>
