@@ -24,7 +24,6 @@ $address-font-color
 $time-font-color
 $back-button-color
 
-$textarea-border-color
 $textarea-background-color
 $textarea-font-color
 
@@ -32,16 +31,20 @@ $textarea-font-color
 
 **/
 $body-background-color: #A8CDCF;
-
+$focus-ring-color: #1E6664;
 $nav-color: #04889C;
 $nav-background-color: #1A2331;
 $nav-item-hover-color: #A8CDCF;
 $nav-item-active-color: #80F3F0;
-
 $button-color: #04889C;
 $button-background-color: #1A2331;
 $form-background-color: #80F3F0;
 $input-background-color: #D6F1F3;
-$error-color: #DA4533;
+$error-color: #D5685B;//#E85847;//#DA4533;
 
+$event-font-color: #07605E;
+$event-detail-color: #1AACA9;
 $box-shadow-color: #888888;
+
+$drag-event-bckgcolor:#DDEDED; 
+$drag-action-container-bckgcolor:#C4FFFF;

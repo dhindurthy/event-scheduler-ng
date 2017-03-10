@@ -19,12 +19,12 @@ app-evet-add {
 
 :focus {
     /* -webkit-focus-ring-color = '#5B9DD9' */
-    outline: #D6F1F3 auto 0.20rem;
+    outline: $focus-ring-color auto 0.20rem;
 }
 
 a {
 	:focus {
 	    /* -webkit-focus-ring-color = '#5B9DD9' */
-	    outline: #D6F1F3 auto 0.25rem;
+	    outline: $focus-ring-color auto 0.25rem;
 	}
 }
