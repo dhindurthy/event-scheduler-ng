@@ -75,7 +75,7 @@ export class EventDroppableDirective {
       document.getElementById(eventData.id).classList.add('drag-action-disabled');
       setTimeout(function() {
         document.getElementById(eventData.id).classList.remove('drag-action-disabled');
-      }, 2000);
+      }, 1500);
     }
   }
 
