@@ -7,50 +7,50 @@
      -->
 
     <form name="eventForm" tabindex="0" (ngSubmit)="onSubmit(); eventForm.reset()" #eventForm="ngForm" [hidden]="formSaved">
-    	<button (click)="goBack()" class="event-reset-button back-button"><-- No Updates</button>
+    	<button (click)="goBack()" class="event-reset-button back-button" aria-label="Go Back"><-- No Updates</button>
 		<section class="container" >
 			<section class="form-section">
-				<input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="eventEditable.name" name="name" #name="ngModel">
-				<div [hidden]="name.valid || name.pristine" class="error-message">
+				<input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="eventEditable.name" name="name" #name="ngModel" aria-controls="name-error">
+				<div id="name-error" [hidden]="name.valid || name.pristine" class="error-message" aria-live="polite">
 		          Name is required
 		        </div>
 			</section>
 			<section class="form-section">
-				<textarea class="paragraph" rows="4" cols="100" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="eventEditable.description" name="description" #description="ngModel"></textarea>
-				<div [hidden]="description.valid || description.pristine" class="error-message">
+				<textarea class="paragraph" rows="4" cols="100" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="eventEditable.description" name="description" #description="ngModel" aria-controls="paragraph-error"></textarea>
+				<div id="paragraph-error" [hidden]="description.valid || description.pristine" class="error-message" aria-live="polite">
 		          Description is required
 		        </div>
 			</section>
 			<section class="detail-section">
 				<div class="first">
-					<textarea cols="65" placeholder="People joining you" aria-label="People" id="people" required [(ngModel)]="eventEditable.people" name="people" #people="ngModel"></textarea>
-					<div [hidden]="people.valid || people.pristine" class="error-message">
+					<textarea cols="65" placeholder="People joining you" aria-label="People" id="people" required [(ngModel)]="eventEditable.people" name="people" #people="ngModel" aria-controls="people-error"></textarea>
+					<div id="people-error" [hidden]="people.valid || people.pristine" class="error-message" aria-live="polite">
 			          People is required
 			        </div>
 				</div>
 				<div class="middle">
-					<input type="text" placeholder="Date" class="input-date" aria-label="Date" id="date" required [(ngModel)]="eventEditable.date" name="date" #date="ngModel">
-					<div [hidden]="date.valid || date.pristine" class="error-message">
+					<input type="text" placeholder="Date" class="input-date" aria-label="Date" id="date" required [(ngModel)]="eventEditable.date" name="date" #date="ngModel" aria-controls="date-error">
+					<div id="date-error" [hidden]="date.valid || date.pristine" class="error-message" aria-live="polite">
 			          Date is required
 			        </div>
 
-					<input type="text" placeholder="Time" aria-label="Time" id="time" required [(ngModel)]="eventEditable.time" name="time" #time="ngModel">
-					<div [hidden]="time.valid || time.pristine" class="error-message">
+					<input type="text" placeholder="Time" aria-label="Time" id="time" required [(ngModel)]="eventEditable.time" name="time" #time="ngModel" aria-controls="time-error">
+					<div id="time-error" [hidden]="time.valid || time.pristine" class="error-message" aria-live="polite">
 			          Time is required
 			        </div>
 				</div>
 				<address class="last">
-					<textarea cols="70" rows="3" placeholder="Enter the Address" aria-label="Address" id="address" required [(ngModel)]="eventEditable.address" name="address" #address="ngModel"></textarea>
-					<div [hidden]="address.valid || address.pristine" class="error-message">
+					<textarea cols="70" rows="3" placeholder="Enter the Address" aria-label="Address" id="address" required [(ngModel)]="eventEditable.address" name="address" #address="ngModel" aria-controls="address-error"></textarea>
+					<div id="address-error" [hidden]="address.valid || address.pristine" class="error-message" aria-live="polite">
 			          Address is required
 			        </div>
 				</address>
 			</section>
 		</section>
-		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button">Save it!</button>
-		<button type="button" (click)="eventForm.reset()" class="event-reset-button">Clear it!</button>
+		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button" aria-label="Save It" aria-controls="edit-confirmation">Save it!</button>
+		<button type="button" (click)="eventForm.reset()" class="event-reset-button" aria-label="Clear it">Clear it!</button>
 	</form>
-	<section [hidden]="!formSaved">
+	<section id="edit-confirmation" [hidden]="!formSaved" aria-live="polite">
 		<div class="confirmation-message shadow">
 			EVENT IS NOW EDITED!
 		</div>
