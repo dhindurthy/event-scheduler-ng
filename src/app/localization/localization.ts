@@ -13,7 +13,11 @@ export const lookup = {
 	[LANG_ES_NAME]: LANG_ES_TRANS
 };
 
-// providers// try to add this in the app.module.ts
-// export const TRANSLATION_PROVIDERS = [
+// providers
+/**
+ * The same is added in app.module.ts as well
+ * @type {Array}
+ */
+// export const LOCALIZATION_PROVIDERS = [
 // 	{ provide: LOCALIZATIONS, useValue: lookup },
 // ];

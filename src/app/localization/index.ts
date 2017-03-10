@@ -8,3 +8,4 @@
  */
 export * from './localization.service';
 export * from './localization';
+export * from './localization.pipe';
