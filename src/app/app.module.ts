@@ -17,7 +17,10 @@ import { EventDroppableDirective } from './event-droppable.directive';
 
 import { LocalizationService } from './localization/localization.service';
 import { LOCALIZATIONS } from './localization/localization';
+//import { LOCALIZATION_PROVIDERS } from './localization/localization';
 import { lookup } from './localization/localization';
+import { LocalizationPipe } from './localization/localization.pipe';
+import { HelpComponent } from './help/help.component';
 
 /**
  * [enableProdMode To enable the production mode]
@@ -39,7 +42,9 @@ enableProdMode();
     EventEditComponent,
     EventFilterPipe,
     EventDraggableDirective,
-    EventDroppableDirective
+    EventDroppableDirective,
+    LocalizationPipe,
+    HelpComponent
   ],
   imports: [ /** All the angular modules need to be imported here**/
     BrowserModule,
@@ -66,6 +71,7 @@ enableProdMode();
     { provide: EventService,   useClass:    EventService },
     { provide: LocalizationService,   useClass:    LocalizationService },
     { provide: LOCALIZATIONS, useValue: lookup }
+    //{ provide: LOCALIZATION_PROVIDERS, useValue: LOCALIZATION_PROVIDERS }
   ],
   bootstrap: [AppComponent]  /** It is where component is bootstrapped**/
 })
