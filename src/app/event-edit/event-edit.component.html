@@ -50,11 +50,11 @@
 		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button" aria-label="Save It" aria-controls="edit-confirmation">Save it!</button>
 		<button type="button" (click)="eventForm.reset()" class="event-reset-button" aria-label="Clear it">Clear it!</button>
 	</form>
-	<section id="edit-confirmation" [hidden]="!formSaved" aria-live="polite">
-		<div class="confirmation-message shadow">
+	<section id="edit-confirmation" [hidden]="!formSaved" class="confirmation" aria-live="polite">
+		<div class="confirmation-message confirmation-message-shadow">
 			EVENT IS NOW EDITED!
 		</div>
-		<div class="confirmation-message body">
+		<div class="confirmation-message confirmation-message-body">
 			EVENT IS NOW EDITED!
 		</div>
 	</section>
