@@ -1,11 +1,11 @@
 <section class="app-component">
 	<nav>
 		<ul>
-		    <li class="events"><a routerLink="/event" routerLinkActive="active">List</a></li>
-		    <li class="event-add"><a routerLink="/event-add" routerLinkActive="active">{{ translateAdd }}</a></li>
-		    <li class="help"><a>Help</a></li>
+		    <li class="events"><a routerLink="/events" routerLinkActive="active">{{'list' | l}}</a></li>
+		    <li class="event-add"><a routerLink="/event-add" routerLinkActive="active">{{'add' | l}}</a></li>
+		    <li class="help"><a routerLink="/help" routerLinkActive="active">{{'help' | l}}</a></li>
 		    <li class="locales">
-		    	<select [ngModel]="chosenLocale" (ngModelChange)="selectLocale($event)">
+		    	<select [ngModel]="chosenLocale" (ngModelChange)="selectLocale($event)" aria-label="Localization">
 		    		<option *ngFor="let locale of supportedLocales" [value]="locale.value" class="btn btn-default">
 			      		{{ locale.locale }}
 			  		</option>
@@ -17,7 +17,7 @@
 		<div class="aside-one"><a>A</a></div>
 		<div class="aside-two"><a>as</a></div>
 	</aside> -->
-	<section class="router-outlet">
+	<section class="router-outlet" aria-role="application">
 		<router-outlet></router-outlet>
 	</section>
 </section>

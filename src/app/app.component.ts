@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
    * service is required
    */
   constructor(
-    private _localize: LocalizationService
+    private _localizeSevice: LocalizationService
   ) { 
     
   }
@@ -60,8 +60,8 @@ export class AppComponent implements OnInit {
   selectLocale(locale: string) {
 
     this.chosenLocale = locale;
-    this._localize.useLocale(locale);
-    this.translateAdd = this._localize.localize('add');
+    this._localizeSevice.useLocale(locale);
+    this.translateAdd = this._localizeSevice.localize('add');
   }
 
 }

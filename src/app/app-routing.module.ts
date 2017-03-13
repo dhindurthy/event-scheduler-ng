@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EventComponent } from './event/event.component';
 import { EventAddComponent } from './event-add/event-add.component';
 import { EventEditComponent } from './event-edit/event-edit.component';
+import { HelpComponent } from './help/help.component';
 
 /**
  * [myRoutes Place where the routes to 
@@ -12,10 +13,11 @@ import { EventEditComponent } from './event-edit/event-edit.component';
  * @type {Routes}
  */
 const myRoutes: Routes = [
-  { path: '', redirectTo: '/event', pathMatch: 'full' },
-  { path: 'event',  component: EventComponent },
+  { path: '', redirectTo: '/events', pathMatch: 'full' },
+  { path: 'events',  component: EventComponent },
   { path: 'event-add',  component: EventAddComponent },
   { path: 'event-edit/:id/:i',  component: EventEditComponent },
+  { path: 'help',  component: HelpComponent }
 ];
 
 /**

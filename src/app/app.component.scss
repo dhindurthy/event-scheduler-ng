@@ -44,7 +44,7 @@ nav {
 	.event-add {
 		-webkit-flex: 1;
         flex: 1;
-        min-width:75%;
+        min-width:70%;
 	}
 
 	.help {
@@ -55,6 +55,14 @@ nav {
 	.locales {
 		-webkit-flex: 3;
         flex: 3;
+        select{
+        	height: 1.75rem;
+		    background-color: $nav-background-color;
+		    color: $nav-color;
+		    border: none;
+		    font-size: 0.85rem;
+		    font-family: $app-font-family;
+		}
 	}
 
 	.active {
