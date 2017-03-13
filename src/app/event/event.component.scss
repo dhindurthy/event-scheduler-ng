@@ -28,14 +28,17 @@ fieldset {
   justify-content: space-around; //x-axis
   //align-items:center; //y-axis //commented coz space-around is getting it to center anyway
   align-content:space-around;//fact that we have multiple rows
-  padding: 1.5rem;
+  margin:0.5rem;
+  margin-top: 0;
+  padding: 1rem;
   padding-top: 0.25rem;
   //margin: 0 auto;
+  border-radius: 0.5rem;
   width: 80%;
   float: left;
 }
 .container {
-  min-width: 10rem;//to introduce a new row
+  min-width: 8rem;//to introduce a new row
   min-height: 6rem;
   max-width:30rem; //should be reduced according to screen size reduction so media query
   flex: 1 0 auto;// property that allows fluid widths of boxes to fill up - Three values: flex-grow | flex-shrink | flex-basis
@@ -127,8 +130,8 @@ h3 {
   width:13%;
   height:100vh;
   border: 0.75rem solid $nav-color;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
   transition-property: width height;
   transition-duration:0.5s;
   	#container-background {
