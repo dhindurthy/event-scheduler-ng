@@ -1,5 +1,6 @@
 <section class="event-interact-section">
 	<form name="eventForm" tabindex="0" (ngSubmit)="onSubmit(); eventForm.reset()" #eventForm="ngForm" [hidden]="formSaved">
+		<button (click)="goBack()" class="event-reset-button back-button" aria-label="Go Back"><-- Back</button>
 		<section class="container" >
 			<section class="form-section">
 				<input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel" aria-controls="name-error">

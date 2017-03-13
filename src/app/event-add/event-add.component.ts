@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Event } from '../event';
 import { EventService } from '../event.service';
 
+import { Location }           from '@angular/common';
+
 @Component({
 	moduleId: module.id,
 	selector: 'app-event-add',
@@ -13,7 +15,8 @@ import { EventService } from '../event.service';
 export class EventAddComponent implements OnInit {
 
 	constructor(
-		private privateEventService: EventService
+		private privateEventService: EventService,
+		private location: Location
 	) { }
 
   	events : any;
@@ -35,4 +38,9 @@ export class EventAddComponent implements OnInit {
 	    this.privateEventService.postEvent('events',this.model);
 	    this.formSaved = true;
   	}
+
+  	goBack(): void {
+
+	    this.location.back();
+	}
 }
