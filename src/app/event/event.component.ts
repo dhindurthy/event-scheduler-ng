@@ -40,6 +40,7 @@ export class EventComponent implements OnInit {
 	 * @type {any}
 	 */
   	events : any;
+  	cancelledEvents = [];
 
 	/**
 	 * [ngOnInit This is a lifecycle hook in angular 
@@ -48,20 +49,22 @@ export class EventComponent implements OnInit {
 	 * data changes so we have  it in there]
 	 */
 	ngOnInit() {
-		this.getEvents();
-	}
 
-	color = 'green';
+		this.getEvents('events');
+	}
 
   	/**
   	 * [getEvents Method that retrieves the data of all 'Events' 
   	 * from the service is being called here. Note that 
   	 * there is method of same name in the service as well]
   	 */
-	getEvents(): void {
+	getEvents(key: string): void {
 
-		let storedEvents: any = this.privateEventService.getEvents<string>('events');
-		this.events = storedEvents;
+		let storedEvents: any;
+		storedEvents = this.privateEventService.getEvents<string>(key);
+		if(key==='events') {
+			this.events = storedEvents;
+		}
 	}
 
 	/**
@@ -72,51 +75,18 @@ export class EventComponent implements OnInit {
 	 * the code knows what to delete]
 	 */
 	deleteEvent(i): void {
-
+		console.log(i);
 		this.privateEventService.deleteEvent(i);
-		this.getEvents();
+		this.getEvents('events');
 	}
 
-	cancelledEvents = [];
 	onDropInActive(eventData: any) {
-	    console.log('dropped:', eventData);
-	    let eventId = eventData.id;
-	    for (var i = 0; i < this.cancelledEvents.length; i++) {
-	    	if (this.cancelledEvents[i].id === eventId) {
-				this.cancelledEvents.splice(i, 1);
-			}
-	    }
-	    let cancelledEvents = (JSON.parse(JSON.stringify(this.cancelledEvents)));
-		var movedEvent = eventData;
-
-		/**
-		 * This will make it happen in cache but not in localstorage
-		 * So the post event should be done here
-		 */
-		this.events.push(movedEvent);
+    	this.privateEventService.updateStatus(eventData, 'active');
+  		this.getEvents('events');
 	}
 
 	onDropInCancelled(eventData: any) {
-	    console.log('dropped in cancelled:', eventData);
-	    let eventId = eventData.id;
-	    console.log(eventId);
-	    //let events = 
-	    for (var i = 0; i < this.events.length; i++) {
-	    	if (this.events[i].id === eventId) {
-				this.events.splice(i, 1);
-			}
-	    }
-	    console.log(this.events);
-	    let events = (JSON.parse(JSON.stringify(this.events)));
-	    console.log(events);
-		var movedEvent = eventData;
-		movedEvent.id =  Math.round(Math.random()*10000);
-		console.log(movedEvent);
-
-		/**
-		 * This will make it happen in cache but not in localstorage
-		 * So the post event should be done here
-		 */
-		this.cancelledEvents.push(movedEvent);
+  		this.privateEventService.updateStatus(eventData, 'cancelled');
+  		this.getEvents('events');
 	}
 }

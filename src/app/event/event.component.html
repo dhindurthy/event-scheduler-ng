@@ -5,22 +5,24 @@
 </fieldset>
 
 <section class="parent-container" group="one" id="one" appEventDroppable (dropSection)="onDropInActive($event)" aria-label="Active Events">
-  	<section class="container" tabindex="0" *ngFor="let event of events | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" group="one" aria-label="Active Event">
-	  	<button class="delete-button" (click)="deleteEvent(i)" aria-label="Delete Button">X</button>
-		<h3 [routerLink]="['/event-edit', event.id, i]" tabindex=0>{{event.name}}</h3>
-		
-		<p tabindex=0>{{event.description}}</p>
-		<section class="detail-section">
-			<div class="first" tabindex=0 aria-label="People">
-				{{event.people}}
-			</div>
-			<div class="middle">
-				<time datetime='' tabindex=0 >{{event.date}}</time><br>
-				<time datetime='' tabindex=0 >{{event.time}}</time>
-			</div>
-			<address class="last" tabindex=0>
-				{{event.address}} 
-			</address>
+	<section  *ngFor="let event of events | eventFilter:listFilter.value; let i = index" group="one" id="sectionOne">
+	  	<section class="container" tabindex="0" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" aria-label="Active Event" *ngIf="event.status === 'active'" group="one">
+		  	<button class="delete-button" (click)="deleteEvent(i)" aria-label="Delete Button">X</button>
+			<h3 [routerLink]="['/event-edit', event.id, i]" tabindex=0>{{event.name}}</h3>
+			
+			<p tabindex=0>{{event.description}}</p>
+			<section class="detail-section">
+				<div class="first" tabindex=0 aria-label="People">
+					{{event.people}}
+				</div>
+				<div class="middle">
+					<time datetime='' tabindex=0 >{{event.date}}</time><br>
+					<time datetime='' tabindex=0 >{{event.time}}</time>
+				</div>
+				<address class="last" tabindex=0>
+					{{event.address}} 
+				</address>
+			</section>
 		</section>
 	</section>
 </section>
@@ -29,13 +31,15 @@
 	<div id="container-background">
     	Oh!
     </div>
- 	<section class="container" tabindex="0" *ngFor="let event of cancelledEvents | eventFilter:listFilter.value; let i = index" [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" group="two" aria-label="Cancelled Event">
-		<section class="detail-section">
-			<h3 tabindex=0>{{event.name}}</h3>
-			<div class="middle">
-				<time datetime="2017-02-14 20:00" tabindex=0>{{event.date}}</time><br>
-				<time datetime="2017-02-14 20:00" tabindex=0>{{event.time}}</time>
-			</div>
+    <section *ngFor="let event of events; let i = index" group="two" id="sectionTwo">
+	 	<section class="container" tabindex="0"  [attr.data-index]="i" id="{{event.id}}" [appEventDraggable]="{eventData: event}" aria-label="Cancelled Event" *ngIf="event.status === 'cancelled'" group="two">
+			<section class="detail-section">
+				<h3 tabindex=0>{{event.name}}</h3>
+				<div class="middle">
+					<time datetime="2017-02-14 20:00" tabindex=0>{{event.date}}</time><br>
+					<time datetime="2017-02-14 20:00" tabindex=0>{{event.time}}</time>
+				</div>
+			</section>
 		</section>
 	</section>
 </section>
