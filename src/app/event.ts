@@ -13,5 +13,6 @@ export class Event {
     public date: string,
     public time: string,
     public address: string,
+    public status: string
   ) {  }
 }

@@ -16,7 +16,8 @@ export class EventService {
    */
   getEvents<T>(key: string): T {
 
-    let value: any = localStorage.getItem(key);
+    let value: any;
+    value = localStorage.getItem(key);
     if (value && value != "undefined" && value != "null") {
 
       return <T>JSON.parse(value);
@@ -47,19 +48,32 @@ export class EventService {
     localStorage.setItem('events', existingEvents);
   }
   
-
   postEvent(key: string, event: any) {
-
-    let existingEvents: any = this.getEvents<string>('events');
+    let existingEvents: any = this.getEvents<string>(key);
     let storedEvents: any = [];
     if(existingEvents){
       storedEvents = existingEvents;
-    } 
+    }
     if (event) {
       storedEvents.push(event);
-      console.log(storedEvents);
       storedEvents = JSON.stringify(storedEvents);
       localStorage.setItem(key, storedEvents);
     }
+  }
+
+  updateStatus (eventData: any, status: string) {
+    let movedEvent = eventData;
+    let movedEventId = eventData.id;
+
+    let allEvents: any = this.getEvents<string>('events');
+
+    for (var i = 0; i < allEvents.length; i++) {
+      if (allEvents[i].id === movedEventId) {
+        allEvents[i].status = status;
+      }
+    }
+
+    let updatedEvents = JSON.stringify(allEvents);
+    localStorage.setItem('events', updatedEvents);
   }
 }
