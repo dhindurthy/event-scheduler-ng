@@ -1,54 +1,60 @@
 <section class="event-interact-section">
 	<form name="eventForm" tabindex="0" (ngSubmit)="onSubmit(); eventForm.reset()" #eventForm="ngForm" [hidden]="formSaved">
-		<button (click)="goBack()" class="event-reset-button back-button" aria-label="Go Back"><-- Back</button>
+		<button (click)="goBack()" class="event-reset-button back-button" aria-label="Go Back">{{'back-button' | l}}</button>
 		<section class="container" >
 			<section class="form-section">
-				<input type="text" placeholder="Event's Name" aria-label="Name" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel" aria-controls="name-error">
+				<label for="name" >{{'name-placeholder' | l}}</label>
+				<input type="text" placeholder="{{'name-placeholder' | l}}" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel" aria-controls="name-error">
 				<div id="name-error" [hidden]="name.valid || name.pristine" class="error-message" aria-live="polite">
-		          Name is required
+		          {{'name-required-error' | l}}
 		        </div>
 			</section>
 			<section class="form-section">
-				<textarea class="paragraph" rows="4" cols="100" placeholder="Description of the event" aria-label="Description" id="description" required [(ngModel)]="model.description" name="description" #description="ngModel" aria-controls="paragraph-error"></textarea>
+				<label for="description" >{{'description-placeholder' | l}}</label>
+				<textarea class="paragraph" rows="4" cols="100" placeholder="{{'description-placeholder' | l}}" id="description" required [(ngModel)]="model.description" name="description" #description="ngModel" aria-controls="paragraph-error"></textarea>
 				<div id="paragraph-error" [hidden]="description.valid || description.pristine" class="error-message" aria-live="polite">
-		          Description is required
+		          {{'description-required-error' | l}}
 		        </div>
 			</section>
 			<section class="detail-section">
 				<div class="first">
-					<textarea cols="65" placeholder="People joining you" aria-label="People" id="people" required [(ngModel)]="model.people" name="people" #people="ngModel" aria-controls="people-error"></textarea>
+					<label for="people" >{{'people-placeholder' | l}}</label>
+					<textarea cols="65" placeholder="{{'people-placeholder' | l}}" id="people" required [(ngModel)]="model.people" name="people" #people="ngModel" aria-controls="people-error"></textarea>
 					<div id="people-error" [hidden]="people.valid || people.pristine" class="error-message" aria-live="polite">
-			          People is required
+			          {{'people-required-error' | l}}
 			        </div>
 				</div>
 				<div class="middle">
-					<input type="text" placeholder="Date" class="input-date" aria-label="Date" id="date" required [(ngModel)]="model.date" name="date" #date="ngModel" aria-controls="date-error">
+					<label for="date" >{{'date-placeholder' | l}}</label>
+					<input type="text" placeholder="{{'date-placeholder' | l}}" class="input-date" aria-label="Date" id="date" required [(ngModel)]="model.date" name="date" #date="ngModel" aria-controls="date-error">
 					<div id="date-error" [hidden]="date.valid || date.pristine" class="error-message" aria-live="polite">
-			          Date is required
+			          {{'date-required-error' | l}}
 			        </div>
 
-					<input type="text" placeholder="Time" aria-label="Time" id="time" required [(ngModel)]="model.time" name="time" #time="ngModel" aria-controls="time-error">
+			        <label for="time" >{{'time-placeholder' | l}}</label>
+					<input type="text" placeholder="{{'time-placeholder' | l}}" aria-label="Time" id="time" required [(ngModel)]="model.time" name="time" #time="ngModel" aria-controls="time-error">
 					<div id="time-error" [hidden]="time.valid || time.pristine" class="error-message" aria-live="polite">
-			          Time is required
+			          {{'time-required-error' | l}}
 			        </div>
 				</div>
 				<address class="last">
-					<textarea cols="70" rows="3" placeholder="Enter the Address" aria-label="Address" id="address" required [(ngModel)]="model.address" name="address" #address="ngModel" aria-controls="address-error"></textarea>
+					<label for="address" >{{'address-placeholder' | l}}</label>
+					<textarea cols="70" rows="3" placeholder="{{'address-placeholder' | l}}" aria-label="Address" id="address" required [(ngModel)]="model.address" name="address" #address="ngModel" aria-controls="address-error"></textarea>
 					<div id="address-error" [hidden]="address.valid || address.pristine" class="error-message" aria-live="polite">
-			          Address is required
+			          {{'address-required-error' | l}}
 			        </div>
 				</address>
 			</section>
 		</section>
-		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button" aria-label="Save It" aria-controls="add-confirmation">Save it!</button>
-		<button type="button" (click)="eventForm.reset()" class="event-reset-button" aria-label="Clear It">Clear it!</button>
+		<button type="submit" [disabled]="!eventForm.form.valid" [ngClass]="{disabled : !eventForm.form.valid}" class="event-submit-button" aria-label="Save It" aria-controls="add-confirmation">{{'save-button' | l}}!</button>
+		<button type="button" (click)="eventForm.reset()" class="event-reset-button" aria-label="Clear It">{{'clear-button' | l}}</button>
 	</form>
 	<section id="add-confirmation" [hidden]="!formSaved" class="confirmation" aria-live="polite">
 		<div class="confirmation-message confirmation-message-shadow" >
-			EVENT IS NOW ADDED!
+			{{'event-added-message' | l}}
 		</div>
 		<div class="confirmation-message confirmation-message-body">
-			EVENT IS NOW ADDED!
+			{{'event-added-message' | l}}
 		</div>
 	</section>
 </section>
