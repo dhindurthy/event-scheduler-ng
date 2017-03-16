@@ -25,6 +25,11 @@ export class EventService {
     return null;
   }
 
+  /**
+   * [getEvent Method that looks up all the events and 
+   * return the event that uer wants to edit]
+   * @param {number} id [Id of the event]
+   */
   getEvent(id: number) {
 
     let existingEvents: any = this.getEvents<string>('events');
@@ -32,6 +37,10 @@ export class EventService {
     return event;
   }
 
+  /**
+   * [deleteEvent Method thats run everytime an event is deleted]
+   * @param {number} index [Index of the event]
+   */
   deleteEvent(index: number) {
 
     let existingEvents: any = this.getEvents<string>('events');
@@ -40,6 +49,11 @@ export class EventService {
     localStorage.setItem('events', existingEvents);
   }
 
+  /**
+   * [updateEvent Method that is run everytime an event is edited]
+   * @param {number} index [Index of the event]
+   * @param {any}    event [The event thats being updated]
+   */
   updateEvent(index: number, event: any) {
 
     let existingEvents: any = this.getEvents<string>('events');
@@ -48,6 +62,11 @@ export class EventService {
     localStorage.setItem('events', existingEvents);
   }
   
+  /**
+   * [postEvent Method run everytime an event is added]
+   * @param {string} key   ['events']
+   * @param {any}    event [Event that is being added]
+   */
   postEvent(key: string, event: any) {
     let existingEvents: any = this.getEvents<string>(key);
     let storedEvents: any = [];
@@ -61,6 +80,13 @@ export class EventService {
     }
   }
 
+  /**
+   * [updateStatus Method that is run everytime an event 
+   * is drag-dropped around from active to cancel and vice versa]
+   * @param {any}    eventData [Event that has been moved 
+   * and should get its status changed]
+   * @param {string} status    [Active or Cancelled]
+   */
   updateStatus (eventData: any, status: string) {
     let movedEvent = eventData;
     let movedEventId = eventData.id;
