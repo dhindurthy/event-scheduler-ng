@@ -75,16 +75,25 @@ export class EventComponent implements OnInit {
 	 * the code knows what to delete]
 	 */
 	deleteEvent(i): void {
-		console.log(i);
 		this.privateEventService.deleteEvent(i);
 		this.getEvents('events');
 	}
 
+	/**
+	 * [onDropInActive This method gets fired once 
+	 * the event is dropped in active area]
+	 * @param {any} eventData [The event that has been dropped 
+	 * in active area]
+	 */
 	onDropInActive(eventData: any) {
     	this.privateEventService.updateStatus(eventData, 'active');
   		this.getEvents('events');
 	}
 
+	/**
+	 * [onDropInCancelled Method thats run once event is dropped in cancel box]
+	 * @param {any} eventData [The event that has been dropped]
+	 */
 	onDropInCancelled(eventData: any) {
   		this.privateEventService.updateStatus(eventData, 'cancelled');
   		this.getEvents('events');
