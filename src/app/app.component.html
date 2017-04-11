@@ -6,7 +6,7 @@
 		    <li class="help"><a routerLink="/help" routerLinkActive="active">{{'help' | l}}</a></li>
 		    <li class="locales">
 		    	<select [ngModel]="chosenLocale" (ngModelChange)="selectLocale($event)" aria-label="Localization">
-		    		<option *ngFor="let locale of supportedLocales" [value]="locale.value" class="btn btn-default">
+		    		<option *ngFor="let locale of supportedLocales" [value]="locale.value" class="locale-option">
 			      		{{ locale.locale }}
 			  		</option>
 			    </select>
