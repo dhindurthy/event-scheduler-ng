@@ -23,5 +23,5 @@ export const LANG_ES_TRANS = {
     'back-button':'Espalda',
     'save-button':'Guardarlo',
     'clear-button':'Limpialo',
-    'event-add-message':'Se añade ahora el evento'
+    'event-added-message':'Se añade ahora el evento'
 };

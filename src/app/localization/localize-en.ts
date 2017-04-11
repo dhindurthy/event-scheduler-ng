@@ -22,7 +22,7 @@ export const LANG_EN_TRANS = {
     'back-button':'Back',
     'save-button':'Save It',
     'clear-button':'Clear It',
-    'event-add-message':'Event is now added'
+    'event-added-message':'Event is now added'
 };
 
 // 'namePlaceholder':'Event Name',
